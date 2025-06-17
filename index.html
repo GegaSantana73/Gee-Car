@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gee Car - Dealer Mobil Terpercaya</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .car-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .car-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .car-title {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        .car-price {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .social-icon {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-car me-2"></i>Gee Car
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mobil">Mobil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Temukan Mobil Impian Anda</h1>
+            <p class="hero-subtitle">Lebih dari 100+ mobil berkualitas siap menemani perjalanan Anda</p>
+            <a href="#mobil" class="btn btn-primary btn-lg">Lihat Koleksi</a>
+        </div>
+    </section>
+
+    <!-- Mobil Section -->
+    <section id="mobil" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Koleksi Mobil Kami</h2>
+            <div class="row">
+                <!-- Mobil 1 -->
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://lh3.googleusercontent.com/cV3tqP3JJiWhANzPeCe8cjUZLsXO-Xb93QL27wddmIb-hgPW8L_MHiOgUCpAseqrysDwG7NypMF2JapuKFWXtsLNQXUtipbuQUI=s1500" class="card-img-top car-img" alt="Toyota Fortuner">
+                        <div class="card-body">
+                            <h5 class="card-title car-title">Toyota Fortuner</h5>
+                            <p class="card-text">SUV tangguh dengan performa luar biasa dan interior mewah.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="car-price">Rp 650.000.000</span>
+                                <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobil 2 -->
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://i.ytimg.com/vi/-JRyqOGw-LQ/maxresdefault.jpg" class="card-img-top car-img" alt="Honda Civic">
+                        <div class="card-body">
+                            <h5 class="card-title car-title">Honda Civic Turbo</h5>
+                            <p class="card-text">Sedan sporty dengan teknologi canggih dan efisiensi bahan bakar.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="car-price">Rp 550.000.000</span>
+                                <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobil 3 -->
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://www.mbusa.com/content/dam/mb-nafta/us/future-vehicles/my24/glc-coupe/gallery/full/2024-GLC-COUPE-FMG-013-FE-DR.jpg" class="card-img-top car-img" alt="Mercedes-Benz">
+                        <div class="card-body">
+                            <h5 class="card-title car-title">Mercedes-Benz GLC</h5>
+                            <p class="card-text">SUV premium dengan kenyamanan dan fitur keselamatan terbaik.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="car-price">Rp 1.250.000.000</span>
+                                <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobil 4 -->
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://www.mitsubishi-motors.com/en/newsrelease/images/download/2024/02/p_240201_m_1469_img_06.png" class="card-img-top car-img" alt="Mitsubishi Xpander">
+                        <div class="card-body">
+                            <h5 class="card-title car-title">Mitsubishi Xpander</h5>
+                            <p class="card-text">MPV keluarga dengan desain modern dan kabin yang luas.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="car-price">Rp 320.000.000</span>
+                                <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobil 5 -->
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/2023-audi-r8-gt-front-three-quarters-motion-3-1664827965.jpg?crop=0.684xw:0.577xh;0.0321xw,0.281xh&resize=2048:*" class="card-img-top car-img" alt="Audi R8">
+                        <div class="card-body">
+                            <h5 class="card-title car-title">Audi R8</h5>
+                            <p class="card-text">Supercar dengan performa luar biasa dan desain yang memukau.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="car-price">Rp 4.500.000.000</span>
+                                <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobil 6 -->
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <img src="https://www.carmudi.co.id/journal/wp-content/uploads/2018/05/Suzuki-Ertiga-2018-min.jpg" class="card-img-top car-img" alt="Suzuki Ertiga">
+                        <div class="card-body">
+                            <h5 class="card-title car-title">Suzuki Ertiga</h5>
+                            <p class="card-text">MPV ekonomis dengan ruang kabin luas dan irit bahan bakar.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="car-price">Rp 280.000.000</span>
+                                <a href="#" class="btn btn-sm btn-primary">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Lihat Semua Mobil</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Tentang Gee Car</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1586&q=80" alt="Showroom Gee Car" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <h3 class="mb-3">Dealer Mobil Terpercaya Sejak 2010</h3>
+                    <p>Gee Car adalah dealer mobil terkemuka yang telah melayani pelanggan dengan integritas dan profesionalisme selama lebih dari satu dekade. Kami bangga menjadi tujuan utama bagi mereka yang mencari kendaraan berkualitas dengan harga kompetitif.</p>
+                    <p>Dengan tim ahli yang berpengetahuan luas dan berkomitmen untuk memberikan layanan terbaik, kami membantu pelanggan menemukan mobil yang sempurna sesuai kebutuhan dan anggaran mereka.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>100% Mobil Berkualitas</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Garansi Resmi</span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Pembiayaan Mudah</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span>Layanan Purna Jual</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Kenapa Memilih Gee Car?</h2>
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="feature-title">Garansi Terbaik</h4>
+                    <p>Semua mobil kami dilengkapi dengan garansi resmi dari pabrikan untuk memberikan ketenangan pikiran.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h4 class="feature-title">Harga Kompetitif</h4>
+                    <p>Kami menawarkan harga terbaik di kelasnya dengan berbagai promo menarik setiap bulannya.</p>
+                </div>
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4 class="feature-title">Layanan 24/7</h4>
+                    <p>Tim customer service kami siap membantu Anda kapan saja, bahkan di hari libur sekalipun.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section id="testimoni" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center section-title">Apa Kata Pelanggan Kami?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card text-center h-100">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimoni 1" class="testimonial-img">
+                        <h5>Budi Santoso</h5>
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Pelayanan sangat memuaskan! Proses pembelian mobil di Gee Car cepat dan transparan. Saya mendapatkan Toyota Fortuner dengan harga terbaik."</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card text-center h-100">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimoni 2" class="testimonial-img">
+                        <h5>Siti Rahayu</h5>
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Tim Gee Car sangat membantu dalam memilih mobil keluarga pertama kami. Mitsubishi Xpander yang kami beli dalam kondisi sempurna dan harga bersaing."</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card text-center h-100">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Testimoni 3" class="testimonial-img">
+                        <h5>Andi Wijaya</h5>
+                        <div class="text-warning mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Sebagai kolektor mobil, saya sangat puas dengan Audi R8 yang saya dapatkan di Gee Car. Kondisi seperti baru dengan dokumen lengkap."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">Siap Memiliki Mobil Impian Anda?</h2>
+            <p class="mb-4">Hubungi kami sekarang dan dapatkan penawaran terbaik untuk mobil idaman Anda.</p>
+            <a href="#kontak" class="btn btn-light btn-lg">Hubungi Kami</a>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Hubungi Kami</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Alamat Email" required>
+                        </div>
+                        <div class="mb-3">
+                            <input type="tel" class="form-control" placeholder="Nomor Telepon" required>
+                        </div>
+                        <div class="mb-3">
+                            <select class="form-select">
+                                <option selected disabled>Jenis Mobil yang Diminati</option>
+                                <option>Toyota Fortuner</option>
+                                <option>Honda Civic Turbo</option>
+                                <option>Mercedes-Benz GLC</option>
+                                <option>Mitsubishi Xpander</option>
+                                <option>Audi R8</option>
+                                <option>Suzuki Ertiga</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title mb-4">Informasi Kontak</h4>
+                            <div class="d-flex align-items-start mb-4">
+                                <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                                <div>
+                                    <h5 class="mb-1">Alamat</h5>
+                                    <p>Jl. Sultan Machmud No.57 Kb. Bukit Bestari, Tanjung Pinang 29122</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-4">
+                                <i class="fas fa-phone-alt me-3 mt-1"></i>
+                                <div>
+                                    <h5 class="mb-1">Telepon</h5>
+                                    <p>0831-9124-4921</p>
+                                    <p>0813-7151-4417 (WhatsApp)</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-4">
+                                <i class="fas fa-envelope me-3 mt-1"></i>
+                                <div>
+                                    <h5 class="mb-1">Email</h5>
+                                    <p>gegasantana56@gmail.com</p>
+                                    <p>gegasantana73@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-clock me-3 mt-1"></i>
+                                <div>
+                                    <h5 class="mb-1">Jam Operasional</h5>
+                                    <p>Senin - Jumat: 08:00 - 17:00</p>
+                                    <p>Sabtu: 09:00 - 15:00</p>
+                                    <p>Minggu & Hari Libur: Tutup</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title"><i class="fas fa-car me-2"></i>Gee Car</h4>
+                    <p>Dealer mobil terpercaya dengan berbagai pilihan kendaraan berkualitas dari merek ternama dunia. Komitmen kami adalah memberikan pengalaman terbaik dalam memiliki mobil impian Anda.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Menu</h4>
+                    <a href="#" class="footer-link">Beranda</a>
+                    <a href="#mobil" class="footer-link">Mobil</a>
+                    <a href="#tentang" class="footer-link">Tentang Kami</a>
+                    <a href="#testimoni" class="footer-link">Testimoni</a>
+                    <a href="#kontak" class="footer-link">Kontak</a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Merek Mobil</h4>
+                    <a href="#" class="footer-link">Toyota</a>
+                    <a href="#" class="footer-link">Honda</a>
+                    <a href="#" class="footer-link">Mercedes-Benz</a>
+                    <a href="#" class="footer-link">Mitsubishi</a>
+                    <a href="#" class="footer-link">Audi</a>
+                    <a href="#" class="footer-link">Suzuki</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p>Berlangganan newsletter kami untuk mendapatkan informasi terbaru tentang promo dan produk.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Alamat Email">
+                        <button class="btn btn-primary" type="button">Berlangganan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                <p class="mb-0">&copy; 2025 Gee Car. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
